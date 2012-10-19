@@ -98,6 +98,17 @@ public class Utils {
 		products.toArray(arr);
 		return Utils.getSum(arr);
 	}
+
+	public static long getDivisorsSum(long num){
+		long sum = 1;
+		for (int i = 2; i <= num /2 + 1; i++){
+			if (num  % i == 0){
+				sum += i;
+			}
+		}
+		
+		return sum;
+	}
 	
 	private static String multiplySingleDigit(String num, char digitAsChar) {
 		int carry = 0;
