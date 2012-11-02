@@ -1,8 +1,17 @@
 package com.port.euler;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Utils {
+	
+	@SuppressWarnings("rawtypes")
+	public static String getStringFromResource(Class clazz, String fileName) {
+		InputStream inputStream = clazz.getResourceAsStream("/files/" + fileName);
+		@SuppressWarnings("resource")
+		String s = new java.util.Scanner(inputStream).useDelimiter("\\A").next();
+		return s;
+	}
 	
 	public static String reverse(String s) {
 	    String reverseStringVariable = "";

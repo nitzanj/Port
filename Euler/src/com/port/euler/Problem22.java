@@ -1,13 +1,11 @@
 package com.port.euler;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Problem22 {
 	public long solve(){
-		InputStream inputStream = getClass().getResourceAsStream("/files/names.txt");
-		String s = new java.util.Scanner(inputStream).useDelimiter("\\A").next();
+		String s = Utils.getStringFromResource(getClass(), "names.txt");
 		String[] split = s.split(",");
 		ArrayList<String> names = new ArrayList<>(split.length);
 		

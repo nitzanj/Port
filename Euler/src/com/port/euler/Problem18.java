@@ -1,6 +1,5 @@
 package com.port.euler;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Problem18 {
@@ -9,8 +8,7 @@ public class Problem18 {
 	static final ArrayList<Integer[]> pyramid = new ArrayList<>();
 	
 	private void init(){
-		InputStream inputStream = getClass().getResourceAsStream("/files/problem_18.txt");
-		String rawData = new java.util.Scanner(inputStream).useDelimiter("\\A").next();
+		String rawData = Utils.getStringFromResource(getClass(), "problem_18.txt");
 		String[] rows = rawData.split("\r\n");
 		for (int i = 0; i < rows.length; i++) {
 			String[] rowStr = rows[i].split(" ");
