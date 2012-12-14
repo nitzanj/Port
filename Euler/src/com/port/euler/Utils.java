@@ -2,6 +2,7 @@ package com.port.euler;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Utils {
 	
@@ -30,6 +31,16 @@ public class Utils {
 		}
 		
 		return sum;
+	}
+	
+	public static List<Integer> getDigits(long num) {
+		String numStr = String.valueOf(num);
+		ArrayList<Integer> result = new ArrayList<Integer>(numStr.length());
+		for (int i = 0; i < numStr.length(); i++) {
+			result.add(numStr.charAt(i) - '0');
+		}
+		
+		return result;
 	}
 
 	public static String getSum(String[] numbers) {
@@ -138,5 +149,17 @@ public class Utils {
 		}
 		
 		return result.reverse().toString();
+	}
+	
+
+	public static int getDivisorsCount(long num) {
+		int count = 1;
+		for (int i = 2; i <= num /2 + 1; i++){
+			if (num  % i == 0){
+				count ++;
+			}
+		}
+		
+		return count;
 	}
 }
