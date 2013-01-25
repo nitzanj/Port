@@ -14,6 +14,28 @@ public class Utils {
 		return s;
 	}
 	
+	public static List<String> getPermutations(String setOfNumbers) {
+		List<String> subResult = new ArrayList<>();
+		
+		if (setOfNumbers.length() == 1) {
+			subResult.add(setOfNumbers);
+			return subResult;
+		} else {
+			String subString = null;
+			char currIndexChar = ' ';
+			for (int i = 0; i < setOfNumbers.length(); i++) {
+				currIndexChar = setOfNumbers.charAt(i);
+				subString = setOfNumbers.replace("" + currIndexChar, "");
+				List<String> tempResults = getPermutations(subString);
+				for (String string : tempResults) {
+					subResult.add(currIndexChar + string);
+				}
+			}
+		}
+
+		return subResult;
+	}
+	
 	public static String reverse(String s) {
 	    String reverseStringVariable = "";
 	    for (int i = s.length() - 1; i != -1; i--) {
@@ -151,6 +173,19 @@ public class Utils {
 		return result.reverse().toString();
 	}
 	
+	public static boolean isPrime (long num){
+		if (num < 0){
+			return false;
+		}
+		
+		for (int i = 2; i <= num /2 + 1; i++){
+			if (num  % i == 0){
+				return false;
+			}
+		}
+		
+		return true;
+	}
 
 	public static int getDivisorsCount(long num) {
 		int count = 1;
@@ -161,5 +196,22 @@ public class Utils {
 		}
 		
 		return count;
+	}
+	
+	public static long getLargestCommonDivisor(long a, long b){
+		long small = Math.min(a, b);
+		long big = Math.max(a, b);
+		
+		if (big % small == 0){
+			return small;
+		}
+		
+		for (long i = small /2 + 1; i > 0 ; i--){
+			if (a % i == 0 && b % i == 0){
+				return i;
+			}
+		}
+		
+		return 1;
 	}
 }
