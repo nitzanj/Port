@@ -11,7 +11,7 @@ public class Problem13 {
 		String s = Utils.getStringFromResource(getClass(), "problem_13.txt");
 		String[] split = s.split(";");
 		
-		return Utils.getSum(split).substring(0, 10);
+		return Utils.getStringsSum(split).substring(0, 10);
 	}
 
 	
