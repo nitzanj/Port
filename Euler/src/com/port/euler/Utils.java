@@ -112,13 +112,13 @@ public class Utils {
 
 		return result;
 	}
-	
-	public static <T extends Number> long getSum(Collection<T> collection){
+
+	public static <T extends Number> long getSum(Collection<T> collection) {
 		long sum = 0;
 		for (T number : collection) {
 			sum += number.longValue();
 		}
-		
+
 		return sum;
 	}
 
@@ -402,7 +402,7 @@ public class Utils {
 		return result;
 	}
 
-	public static <T> void printCollection(Collection<T> collection) {
+	public synchronized static <T> void printCollection(Collection<T> collection) {
 		StringBuilder builder = new StringBuilder();
 		for (T t : collection) {
 			builder.append(t);
@@ -438,5 +438,9 @@ public class Utils {
 		}
 
 		return binary;
+	}
+
+	public static long countDigits(long num) {
+		return (long) Math.floor(Math.log10(num)) + 1;
 	}
 }
