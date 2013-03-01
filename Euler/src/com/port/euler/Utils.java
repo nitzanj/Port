@@ -443,4 +443,25 @@ public class Utils {
 	public static long countDigits(long num) {
 		return (long) Math.floor(Math.log10(num)) + 1;
 	}
+
+	/***
+	 * 
+	 * @param fromIndex
+	 *            inclusive
+	 * @param toIndex
+	 *            inclusive
+	 * @return
+	 */
+	public static List<Long> getTriangles(int fromIndex, int toIndex) {
+		
+		ArrayList<Long> triangles = new ArrayList<Long>(toIndex - fromIndex + 1);
+		
+		for (long n = fromIndex; n <= toIndex; n++) {
+			//½n(n+1)
+			long triangle = (long)((float)n/2 * (n + 1));
+			triangles.add(triangle);
+		}
+		
+		return triangles;
+	}
 }
